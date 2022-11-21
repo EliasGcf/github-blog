@@ -3,6 +3,8 @@ import { Nunito } from '@next/font/google';
 
 import '@styles/global.css';
 
+import { Cover } from '@components/Cover';
+
 const nunito = Nunito({
   weight: ['400', '700'],
   subsets: ['latin'],
@@ -13,7 +15,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="pt-BR" className={nunito.variable}>
       <head />
-      <body className="bg-base-background">{children}</body>
+      <body className="bg-base-background">
+        <Cover />
+        <div className="mx-auto -mt-[88px] max-w-[54rem]">{children}</div>
+      </body>
     </html>
   );
 }
