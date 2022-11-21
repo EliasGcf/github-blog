@@ -6,6 +6,10 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-sans)', 'sans-serif'],
       },
+
+      backgroundImage: {
+        'app-cover': "url('/svg/cover.svg')",
+      },
     },
 
     fontWeight: {
