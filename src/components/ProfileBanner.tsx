@@ -27,7 +27,7 @@ async function ProfileBannerBase() {
           <div className="flex justify-between">
             <h1 className="text-2xl font-bold  text-base-title">{profile.name}</h1>
             <a
-              className="flex gap-2 text-xs font-bold text-blue underline-offset-4 hover:underline"
+              className="flex items-center gap-2 text-xs font-bold text-blue underline-offset-4 hover:underline"
               href={profile.url}
             >
               GITHUB
