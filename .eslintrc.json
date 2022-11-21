@@ -24,5 +24,8 @@
     "react/jsx-props-no-spreading": "off",
 
     "unused-imports/no-unused-imports": "error"
+  },
+  "import/resolver": {
+    "typescript": {}
   }
 }
