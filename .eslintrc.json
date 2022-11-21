@@ -25,7 +25,9 @@
 
     "unused-imports/no-unused-imports": "error"
   },
-  "import/resolver": {
-    "typescript": {}
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
