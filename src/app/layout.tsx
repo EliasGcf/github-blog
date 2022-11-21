@@ -13,7 +13,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="pt-BR" className={nunito.variable}>
       <head />
-      <body>{children}</body>
+      <body className="bg-base-background">{children}</body>
     </html>
   );
 }
