@@ -6,34 +6,36 @@ import {
   faUpRightFromSquare,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
+import { asyncComponent } from '@utils/asyncComponent';
+import { getGitHubProfile } from '@utils/getGithubProfile';
 
-export function ProfileBanner() {
+async function ProfileBannerBase() {
+  const profile = await getGitHubProfile('eliasgcf');
+
   return (
     <div className="flex rounded-[0.625rem] bg-base-profile drop-shadow-lg">
       <Image
-        src="https://github.com/eliasgcf.png"
+        src={profile.avatarUrl}
         width={148}
         height={148}
-        alt="Elias Gabriel"
+        alt={profile.name}
         className="my-8 ml-10 h-fit rounded-lg"
       />
 
       <section className="ml-8 mt-10 mb-8 flex w-full flex-col justify-between pr-8">
         <div className="flex w-full flex-col">
           <div className="flex justify-between">
-            <h1 className="text-2xl font-bold  text-base-title">Elias Gabriel</h1>
+            <h1 className="text-2xl font-bold  text-base-title">{profile.name}</h1>
             <a
               className="flex gap-2 text-xs font-bold text-blue underline-offset-4 hover:underline"
-              href="https://github.com/eliasgcf"
+              href={profile.url}
             >
               GITHUB
               <FontAwesomeIcon icon={faUpRightFromSquare} width={12} height={12} />
             </a>
           </div>
 
-          <p className="mt-2 leading-[160%]">
-            Developer Instructor @Rocketseat・JS/TS Full Stack
-          </p>
+          <p className="mt-2 leading-[160%]">{profile.bio}</p>
         </div>
 
         <footer className="mt-4 flex gap-6">
@@ -44,7 +46,7 @@ export function ProfileBanner() {
               height={18}
               className="text-base-label"
             />
-            EliasGcf
+            {profile.login}
           </span>
 
           <span className="flex items-center gap-2 text-base-subtitle">
@@ -54,7 +56,7 @@ export function ProfileBanner() {
               icon={faBuilding}
               className="text-base-label"
             />
-            Rocketseat
+            {profile.company}
           </span>
 
           <span className="flex items-center gap-2 text-base-subtitle">
@@ -64,10 +66,12 @@ export function ProfileBanner() {
               icon={faUserGroup}
               className="text-base-label"
             />
-            32 seguidores
+            {profile.followers} seguidores
           </span>
         </footer>
       </section>
     </div>
   );
 }
+
+export const ProfileBanner = asyncComponent(ProfileBannerBase);
