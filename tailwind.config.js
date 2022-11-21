@@ -2,6 +2,17 @@
 module.exports = {
   content: ['./src/**/*.tsx'],
   theme: {
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)', 'sans-serif'],
+      },
+    },
+
+    fontWeight: {
+      normal: 400,
+      bold: 700,
+    },
+
     colors: {
       blue: '#3294F8',
 
