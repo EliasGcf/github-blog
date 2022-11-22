@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function PostCard() {
   return (
-    <Link href="/">
+    <Link href="/post/1">
       <div className="flex flex-col rounded-[10px] border-2 border-transparent bg-base-post p-8 transition-colors hover:border-base-label">
         <div className="flex items-baseline justify-between gap-4 md:gap-3">
           <h3 className="break-words text-xl font-bold leading-[160%] text-base-title">
