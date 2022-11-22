@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.tsx'],
@@ -30,7 +31,9 @@ module.exports = {
       'base-profile': '#0B1B2B',
       'base-background': '#071422',
       'base-input': '#040F1A',
+
+      transparent: 'transparent',
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
