@@ -17,7 +17,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <head />
       <body className="bg-base-background">
         <Cover />
-        <div className="mx-auto -mt-[88px] max-w-[54rem]">{children}</div>
+        <div className="mx-auto -mt-[88px] max-w-[54rem] px-4">{children}</div>
       </body>
     </html>
   );
