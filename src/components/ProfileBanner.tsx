@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { asyncComponent } from '@utils/asyncComponent';
 import { getGitHubProfile } from '@utils/getGithubProfile';
+import { Link } from '@components/Link';
 
 async function ProfileBannerBase() {
   const profile = await getGitHubProfile('eliasgcf');
@@ -27,13 +28,10 @@ async function ProfileBannerBase() {
           <div className="flex items-start justify-between gap-4">
             <h1 className="text-2xl font-bold text-base-title">{profile.name}</h1>
 
-            <a
-              className="flex items-center gap-2 text-xs font-bold text-blue underline-offset-4 hover:underline"
-              href={profile.url}
-            >
+            <Link href={profile.url}>
               GITHUB
               <FontAwesomeIcon icon={faUpRightFromSquare} width={12} height={12} />
-            </a>
+            </Link>
           </div>
 
           <p className="mt-2 break-words leading-[160%]">{profile.bio}</p>
