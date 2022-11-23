@@ -11,7 +11,12 @@ type GetGitHubProfileResponse = Promise<{
 export async function getGitHubProfile(username: string): GetGitHubProfileResponse {
   const url = `https://api.github.com/users/${username}`;
 
-  const response = await fetch(url, { cache: 'force-cache' });
+  const response = await fetch(url, {
+    cache: 'force-cache',
+    next: {
+      revalidate: 21600, // 6 hours
+    },
+  });
 
   const data = await response.json();
 

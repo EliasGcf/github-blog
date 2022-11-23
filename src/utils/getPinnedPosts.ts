@@ -84,6 +84,9 @@ export async function getPinnedPosts() {
   const response = await fetch(url.toString(), {
     cache: 'force-cache',
     headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` },
+    next: {
+      revalidate: 300, // 5 minutes
+    },
   });
 
   const data: Issue[] = await response.json();
