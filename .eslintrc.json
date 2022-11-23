@@ -19,6 +19,7 @@
   "plugins": ["react", "@typescript-eslint", "prettier", "unused-imports"],
   "rules": {
     "prettier/prettier": "error",
+    "no-console": "off",
 
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/jsx-props-no-spreading": "off",
