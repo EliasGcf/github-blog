@@ -88,6 +88,8 @@ export async function getPinnedPosts() {
 
   const data: Issue[] = await response.json();
 
+  console.log('Loading pinned posts from GitHub API');
+
   return data.map((issue) => ({
     id: issue.id,
     number: issue.number,

@@ -9,21 +9,21 @@ type GetGitHubProfileResponse = Promise<{
 }>;
 
 export async function getGitHubProfile(username: string): GetGitHubProfileResponse {
-  // const url = `https://api.github.com/users/${username}`;
+  const url = `https://api.github.com/users/${username}`;
 
-  // const response = await fetch(url, { cache: 'force-cache' });
+  const response = await fetch(url, { cache: 'force-cache' });
 
-  // const data = await response.json();
+  const data = await response.json();
 
-  // console.log('Loading profile data from GitHub API');
+  console.log('Loading profile data from GitHub API');
 
   return {
-    name: 'Elias Gabriel',
-    login: 'EliasGcf',
-    bio: 'Developer Instructor @Rocketseat・JS/TS Full Stack',
-    avatarUrl: 'https://avatars.githubusercontent.com/u/50633599?v=4',
-    followers: '952',
-    company: '@Rocketseat',
-    url: 'https://github.com/EliasGcf',
+    name: data.name,
+    login: data.login,
+    bio: data.bio,
+    avatarUrl: data.avatar_url,
+    followers: new Intl.NumberFormat().format(data.followers),
+    company: data.company,
+    url: data.html_url,
   };
 }
