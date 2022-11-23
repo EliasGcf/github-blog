@@ -2,9 +2,11 @@ import { PostCard } from '@components/PostCard';
 import { ProfileBanner } from '@components/ProfileBanner';
 import { TextInput } from '@components/TextInput';
 
-const posts = Array.from(Array(10).keys());
+import { getPinnedPosts } from '@utils/getPinnedPosts';
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getPinnedPosts();
+
   return (
     <div>
       <ProfileBanner />
@@ -19,7 +21,7 @@ export default function Home() {
 
         <div className="mt-12 grid grid-cols-1 gap-8 pb-8 md:grid-cols-2">
           {posts.map((post) => (
-            <PostCard key={post} />
+            <PostCard key={post.id} post={post} />
           ))}
         </div>
       </main>

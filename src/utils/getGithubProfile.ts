@@ -9,13 +9,13 @@ type GetGitHubProfileResponse = Promise<{
 }>;
 
 export async function getGitHubProfile(username: string): GetGitHubProfileResponse {
-  const url = `https://api.github.com/users/${username}`;
+  // const url = `https://api.github.com/users/${username}`;
 
   // const response = await fetch(url, { cache: 'force-cache' });
 
   // const data = await response.json();
 
-  console.log('Loading profile data from GitHub API');
+  // console.log('Loading profile data from GitHub API');
 
   return {
     name: 'Elias Gabriel',
