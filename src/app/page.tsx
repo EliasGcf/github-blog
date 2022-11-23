@@ -16,7 +16,7 @@ export default async function Home() {
       <main className="mt-[4.5rem]">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-bold text-base-subtitle">Publicações</h2>
-          <span className="text-sm text-base-span">6 publicações</span>
+          <span className="text-sm text-base-span">{posts.length} publicações</span>
         </div>
 
         <TextInput placeholder="Buscar conteúdo" className="mt-3" />
