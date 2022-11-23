@@ -7,6 +7,8 @@ import { getPinnedPosts } from '@utils/getPinnedPosts';
 export default async function Home() {
   const posts = await getPinnedPosts();
 
+  console.log('Loading pinned posts from GitHub API');
+
   return (
     <div>
       <ProfileBanner />

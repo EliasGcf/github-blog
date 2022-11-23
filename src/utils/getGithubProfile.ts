@@ -15,8 +15,6 @@ export async function getGitHubProfile(username: string): GetGitHubProfileRespon
 
   const data = await response.json();
 
-  console.log('Loading profile data from GitHub API');
-
   return {
     name: data.name,
     login: data.login,
