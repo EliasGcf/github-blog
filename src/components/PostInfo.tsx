@@ -8,7 +8,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export function PostInfo() {
+type PostInfoProps = {
+  number: string;
+};
+
+export function PostInfo({ number }: PostInfoProps) {
+  console.log('PostInfo - issue number:', number);
+
   return (
     <div className="rounded-[10px] bg-base-profile p-8 drop-shadow-lg">
       <div className="flex justify-between">
