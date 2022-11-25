@@ -33,8 +33,8 @@ export function PostInfo({ number }: PostInfoProps) {
         JavaScript data types and data structures
       </h1>
 
-      <footer className="mt-2 flex items-center gap-8">
-        <span className="flex items-center gap-2 text-base-span">
+      <footer className="mt-2 grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-8">
+        <span className="flex items-center gap-2 whitespace-nowrap text-base-span">
           <FontAwesomeIcon
             icon={faGithub}
             width={18}
@@ -44,7 +44,7 @@ export function PostInfo({ number }: PostInfoProps) {
           EliasGcf
         </span>
 
-        <span className="flex items-center gap-2 text-base-span">
+        <span className="flex items-center gap-2 whitespace-nowrap text-base-span">
           <FontAwesomeIcon
             icon={faCalendarDay}
             width={18}
@@ -54,7 +54,7 @@ export function PostInfo({ number }: PostInfoProps) {
           Há 1 dia
         </span>
 
-        <span className="flex items-center gap-2 text-base-span">
+        <span className="flex items-center gap-2 whitespace-nowrap text-base-span">
           <FontAwesomeIcon
             icon={faComment}
             width={18}
