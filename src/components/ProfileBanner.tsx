@@ -13,8 +13,6 @@ import { Link } from '@components/Link';
 async function ProfileBannerBase() {
   const profile = await getGitHubProfile('eliasgcf');
 
-  console.log('Loading profile data from GitHub API');
-
   return (
     <div className="flex rounded-[10px] bg-base-profile drop-shadow-lg">
       <Image

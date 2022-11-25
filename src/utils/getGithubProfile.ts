@@ -13,12 +13,17 @@ export async function getGitHubProfile(username: string): GetGitHubProfileRespon
 
   const response = await fetch(url, {
     cache: 'force-cache',
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    },
     next: {
       revalidate: 21600, // 6 hours
     },
   });
 
   const data = await response.json();
+
+  console.log('Function getGitHubProfile: Loading profile from GitHub API');
 
   return {
     name: data.name,
