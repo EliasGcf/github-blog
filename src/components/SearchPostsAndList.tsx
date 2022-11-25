@@ -14,7 +14,9 @@ type SearchPostsAndListProps = {
 export function SearchPostsAndList({ posts }: SearchPostsAndListProps) {
   const [searchText, setSearchText] = useState('');
 
-  const filteredPosts = posts.filter((post) => post.title.includes(searchText));
+  const filteredPosts = posts.filter((post) => {
+    return post.title.toLowerCase().includes(searchText.toLowerCase());
+  });
 
   return (
     <main className="mt-[4.5rem]">
