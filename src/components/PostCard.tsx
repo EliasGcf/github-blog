@@ -1,13 +1,15 @@
 import Link from 'next/link';
 
+import { Post } from '@utils/getPosts';
+
 type PostCardProps = {
-  post: { number: number; title: string; content: string; createdAt: string };
+  post: Post;
 };
 
 export function PostCard({ post }: PostCardProps) {
   return (
     <Link href={`/post/${post.number}`}>
-      <div className="flex flex-col rounded-[10px] border-2 border-transparent bg-base-post p-8 transition-colors hover:border-base-label">
+      <div className="flex h-[16.25rem] flex-col rounded-[10px] border-2 border-transparent bg-base-post p-8 transition-colors hover:border-base-label">
         <div className="flex items-baseline justify-between gap-4 md:gap-3">
           <h3 className="break-words text-xl font-bold leading-[160%] text-base-title">
             {post.title}
