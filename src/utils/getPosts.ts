@@ -85,7 +85,7 @@ export async function getPosts(): Promise<Post[]> {
 
   url.searchParams.set('state', 'closed');
   url.searchParams.set('labels', 'publish');
-  url.searchParams.set('per_page', '6');
+  url.searchParams.set('per_page', '100');
   url.searchParams.set('sort', 'created');
   url.searchParams.set('direction', 'desc');
 
