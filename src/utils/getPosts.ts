@@ -1,4 +1,4 @@
-export interface AssigneesEntityOrUserOrAssignee {
+interface AssigneesEntityOrUserOrAssignee {
   login: string;
   id: number;
   node_id: string;
@@ -18,7 +18,7 @@ export interface AssigneesEntityOrUserOrAssignee {
   type: string;
   site_admin: boolean;
 }
-export interface LabelsEntity {
+interface LabelsEntity {
   id: number;
   node_id: string;
   url: string;
@@ -27,7 +27,7 @@ export interface LabelsEntity {
   default: boolean;
   description: string;
 }
-export interface Reactions {
+interface Reactions {
   url: string;
   total_count: number;
   '+1': number;
@@ -70,13 +70,21 @@ export interface Issue {
   state_reason: string;
 }
 
-export async function getPinnedPosts() {
+export type Post = {
+  id: number;
+  number: number;
+  title: string;
+  content: string;
+  createdAt: string;
+};
+
+export async function getPosts(): Promise<Post[]> {
   const url = new URL(
     `https://api.github.com/repos/${process.env.GITHUB_CMS_REPO}/issues`
   );
 
   url.searchParams.set('state', 'closed');
-  url.searchParams.set('labels', 'publish,pin');
+  url.searchParams.set('labels', 'publish');
   url.searchParams.set('per_page', '6');
   url.searchParams.set('sort', 'created');
   url.searchParams.set('direction', 'desc');
@@ -88,6 +96,8 @@ export async function getPinnedPosts() {
       revalidate: 300, // 5 minutes
     },
   });
+
+  console.log('Function getPosts: Loading posts from GitHub API');
 
   const data: Issue[] = await response.json();
 

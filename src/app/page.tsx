@@ -1,32 +1,15 @@
-import { PostCard } from '@components/PostCard';
+import { SearchPostsAndList } from '@components/SearchPostsAndList';
 import { ProfileBanner } from '@components/ProfileBanner';
-import { TextInput } from '@components/TextInput';
 
-import { getPinnedPosts } from '@utils/getPinnedPosts';
+import { getPosts } from '@utils/getPosts';
 
 export default async function Home() {
-  const posts = await getPinnedPosts();
-
-  console.log('Loading pinned posts from GitHub API');
+  const posts = await getPosts();
 
   return (
     <div>
       <ProfileBanner />
-
-      <main className="mt-[4.5rem]">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-base-subtitle">Publicações</h2>
-          <span className="text-sm text-base-span">{posts.length} publicações</span>
-        </div>
-
-        <TextInput placeholder="Buscar conteúdo" className="mt-3" />
-
-        <div className="mt-12 grid grid-cols-1 gap-8 pb-8 md:grid-cols-2">
-          {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
-      </main>
+      <SearchPostsAndList posts={posts} />
     </div>
   );
 }
