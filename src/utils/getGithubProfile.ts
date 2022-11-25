@@ -8,8 +8,8 @@ type GetGitHubProfileResponse = Promise<{
   url: string;
 }>;
 
-export async function getGitHubProfile(username: string): GetGitHubProfileResponse {
-  const url = `https://api.github.com/users/${username}`;
+export async function getGitHubProfile(): GetGitHubProfileResponse {
+  const url = `https://api.github.com/user`;
 
   const response = await fetch(url, {
     cache: 'force-cache',

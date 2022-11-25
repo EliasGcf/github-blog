@@ -11,7 +11,7 @@ import { getGitHubProfile } from '@utils/getGithubProfile';
 import { Link } from '@components/Link';
 
 async function ProfileBannerBase() {
-  const profile = await getGitHubProfile('eliasgcf');
+  const profile = await getGitHubProfile();
 
   return (
     <div className="flex rounded-[10px] bg-base-profile drop-shadow-lg">
