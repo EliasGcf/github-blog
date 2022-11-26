@@ -14,61 +14,65 @@ async function ProfileBannerBase() {
   const profile = await getGitHubProfile();
 
   return (
-    <div className="flex rounded-[10px] bg-base-profile drop-shadow-lg">
+    <div className="flex flex-col items-center rounded-[10px] bg-base-profile px-10 py-8 drop-shadow-lg sm:flex-row sm:items-stretch sm:gap-8">
       <Image
         src={profile.avatarUrl}
         width={148}
         height={148}
         alt={profile.name}
-        className="my-8 ml-10 h-fit rounded-lg"
+        className="rounded-lg"
       />
 
-      <section className="ml-8 mt-10 mb-8 mr-8 flex w-full flex-col justify-between">
-        <div className="flex w-full flex-col">
-          <div className="flex items-start justify-between gap-4">
-            <h1 className="text-2xl font-bold text-base-title">{profile.name}</h1>
+      <div className="w-full sm:flex sm:flex-col">
+        <div className="mt-8 flex w-full items-center justify-between sm:m-0">
+          <strong className="text-2xl">{profile.name}</strong>
 
-            <Link href={profile.url}>
-              GITHUB
-              <FontAwesomeIcon icon={faUpRightFromSquare} width={12} height={12} />
-            </Link>
-          </div>
-
-          <p className="mt-2 break-words leading-[160%]">{profile.bio}</p>
+          <Link href={profile.url}>
+            GITHUB
+            <FontAwesomeIcon icon={faUpRightFromSquare} height={12} width={12} />
+          </Link>
         </div>
 
-        <footer className="mt-4 flex flex-col gap-2 sm:grid sm:grid-cols-2 md:flex md:flex-row md:gap-6">
-          <span className="flex items-center gap-2 text-base-subtitle">
+        <p className="mt-2 w-full">{profile.bio}</p>
+
+        <div className="mt-6 grid w-full grid-cols-2 gap-2 sm:mt-auto sm:flex sm:gap-6">
+          <div className="flex items-center gap-2">
             <FontAwesomeIcon
               icon={faGithub}
-              width={18}
               height={18}
+              width={18}
               className="text-base-label"
             />
-            {profile.login}
-          </span>
+            <span className="whitespace-nowrap text-base text-base-subtitle">
+              {profile.login}
+            </span>
+          </div>
 
-          <span className="flex items-center gap-2 text-base-subtitle">
+          <div className="flex items-center gap-2">
             <FontAwesomeIcon
-              width={18}
-              height={18}
               icon={faBuilding}
-              className="text-base-label"
-            />
-            {profile.company}
-          </span>
-
-          <span className="flex items-center gap-2 text-base-subtitle">
-            <FontAwesomeIcon
-              width={18}
               height={18}
-              icon={faUserGroup}
+              width={18}
               className="text-base-label"
             />
-            {profile.followers} seguidores
-          </span>
-        </footer>
-      </section>
+            <span className="whitespace-nowrap text-base text-base-subtitle">
+              {profile.company.replace('@', '')}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <FontAwesomeIcon
+              icon={faUserGroup}
+              height={18}
+              width={18}
+              className="text-base-label"
+            />
+            <span className="whitespace-nowrap text-base text-base-subtitle">
+              {profile.followers} seguidores
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
