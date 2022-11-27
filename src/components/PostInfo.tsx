@@ -1,69 +1,44 @@
-import { Link } from '@components/Link';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import {
-  faCalendarDay,
-  faChevronLeft,
-  faComment,
-  faUpRightFromSquare,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDay, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { Link } from '@components/Link';
+
+import { Post } from '@utils/getPosts';
+import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
+
+/* eslint-disable import/no-duplicates */
+import { formatDistanceToNow, parseISO } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+/* eslint-enable import/no-duplicates */
+
 type PostInfoProps = {
-  number: string;
+  post: Post;
 };
 
-export function PostInfo({ number }: PostInfoProps) {
-  console.log('PostInfo - issue number:', number);
-
+export function PostInfo({ post }: PostInfoProps) {
   return (
     <div className="rounded-[10px] bg-base-profile p-8 drop-shadow-lg">
-      <div className="flex justify-between">
-        <Link href="/">
-          <FontAwesomeIcon icon={faChevronLeft} width={12} height={12} />
-          VOLTAR
-        </Link>
+      <Link href="/">
+        <FontAwesomeIcon icon={faChevronLeft} width={12} height={12} />
+        VOLTAR
+      </Link>
 
-        <Link href="/">
-          VER NO GITHUB
-          <FontAwesomeIcon icon={faUpRightFromSquare} width={12} height={12} />
-        </Link>
-      </div>
+      <h1 className="mt-5 text-2xl font-bold leading-[130%]">{post.title}</h1>
 
-      <h1 className="mt-5 text-2xl font-bold leading-[130%]">
-        JavaScript data types and data structures
-      </h1>
-
-      <footer className="mt-2 grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-8">
-        <span className="flex items-center gap-2 whitespace-nowrap text-base-span">
-          <FontAwesomeIcon
-            icon={faGithub}
-            width={18}
-            height={18}
-            className="text-base-label"
-          />
-          EliasGcf
-        </span>
-
-        <span className="flex items-center gap-2 whitespace-nowrap text-base-span">
-          <FontAwesomeIcon
-            icon={faCalendarDay}
-            width={18}
-            height={18}
-            className="text-base-label"
-          />
-          Há 1 dia
-        </span>
-
-        <span className="flex items-center gap-2 whitespace-nowrap text-base-span">
-          <FontAwesomeIcon
-            icon={faComment}
-            width={18}
-            height={18}
-            className="text-base-label"
-          />
-          5 comentários
-        </span>
-      </footer>
+      <span className="mt-2 flex items-center gap-2 whitespace-nowrap text-base-span">
+        <FontAwesomeIcon
+          icon={faCalendarDay}
+          width={18}
+          height={18}
+          className="text-base-label"
+        />
+        {capitalizeFirstLetter(
+          formatDistanceToNow(parseISO(post.createdAt), {
+            locale: ptBR,
+            addSuffix: true,
+          }).replace('cerca de ', '')
+        )}
+      </span>
     </div>
   );
 }

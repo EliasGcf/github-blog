@@ -1,4 +1,5 @@
 import { PostInfo } from '@components/PostInfo';
+import { getPost } from '@utils/getPost';
 
 type PostProps = {
   params: {
@@ -6,10 +7,12 @@ type PostProps = {
   };
 };
 
-export default function Post({ params }: PostProps) {
+export default async function Post({ params }: PostProps) {
+  const post = await getPost(params.number);
+
   return (
     <div>
-      <PostInfo number={params.number} />
+      <PostInfo post={post} />
     </div>
   );
 }

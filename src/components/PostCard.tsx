@@ -1,6 +1,12 @@
 import Link from 'next/link';
 
 import { Post } from '@utils/getPosts';
+import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
+
+/* eslint-disable import/no-duplicates */
+import { formatDistanceToNow, parseISO } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+/* eslint-enable import/no-duplicates */
 
 type PostCardProps = {
   post: Post;
@@ -15,7 +21,14 @@ export function PostCard({ post }: PostCardProps) {
             {post.title}
           </h3>
 
-          <span className="whitespace-nowrap text-sm text-base-span">Há 1 dia</span>
+          <span className="whitespace-nowrap text-sm text-base-span">
+            {capitalizeFirstLetter(
+              formatDistanceToNow(parseISO(post.createdAt), {
+                locale: ptBR,
+                addSuffix: true,
+              }).replace('cerca de ', '')
+            )}
+          </span>
         </div>
 
         <p className="mt-5 leading-relaxed text-base-text line-clamp-4">{post.content}</p>
