@@ -11,6 +11,28 @@ module.exports = {
       backgroundImage: {
         'app-cover': "url('/svg/cover.svg')",
       },
+
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.base-text'),
+
+            '--tw-prose-invert-pre-bg': theme('colors.base-post'),
+            '--tw-prose-invert-headings': theme('colors.base-title'),
+
+            a: {
+              color: theme('colors.blue'),
+            },
+
+            blockquote: {
+              p: {
+                '&:before': { content: '""' },
+              },
+              'font-style': 'normal',
+            },
+          },
+        },
+      }),
     },
 
     fontWeight: {
@@ -35,5 +57,5 @@ module.exports = {
       transparent: 'transparent',
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
 };

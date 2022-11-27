@@ -1,5 +1,6 @@
 import { PostInfo } from '@components/PostInfo';
 import { getPost } from '@utils/getPost';
+import { PostContent } from '@components/PostContent';
 
 type PostProps = {
   params: {
@@ -13,6 +14,7 @@ export default async function Post({ params }: PostProps) {
   return (
     <div>
       <PostInfo post={post} />
+      <PostContent content={post.content} />
     </div>
   );
 }
