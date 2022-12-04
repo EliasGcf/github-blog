@@ -1,9 +1,21 @@
-export default function Head() {
+import { DefaultTags } from '@components/DefaultTags';
+
+import { getPosts } from '@utils/getPosts';
+
+export default async function Head() {
+  const posts = await getPosts();
+
   return (
     <>
       <title>GitHub Blog</title>
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <link rel="icon" type="image/png" href="/favicon.png" />
+      <meta
+        name="description"
+        content={`This is a blog that uses GitHub as CMS - ${String(
+          posts.length
+        ).padStart(2, '0')} ${posts.length === 1 ? 'post' : 'posts'}`}
+      />
+
+      <DefaultTags />
     </>
   );
 }
