@@ -16,7 +16,13 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "unused-imports"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "unused-imports",
+    "import-helpers"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "no-console": "off",
@@ -30,10 +36,22 @@
     "import/prefer-default-export": "off",
     "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never" }],
 
-    "no-use-before-define": [
-      "error",
+    "no-use-before-define": ["error", { "functions": false }],
+
+    "import-helpers/order-imports": [
+      "warn",
       {
-        "functions": false
+        "newlinesBetween": "always",
+        "groups": [
+          ["/^react$/", "module"],
+          "/^@app/",
+          "/^@components/",
+          "/^@styles/",
+          "/^@utils/",
+          ["parent", "sibling"],
+          "index"
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ]
   },

@@ -1,12 +1,12 @@
-import { getPost } from '@utils/getPost';
-
-import { DefaultTags } from '@components/DefaultTags';
-import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
-
 /* eslint-disable import/no-duplicates */
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 /* eslint-enable import/no-duplicates */
+
+import { DefaultTags } from '@components/DefaultTags';
+
+import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
+import { getPost } from '@utils/getPost';
 
 type HeadProps = {
   params: {

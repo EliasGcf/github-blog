@@ -1,5 +1,5 @@
-import { SearchPostsAndList } from '@components/SearchPostsAndList';
 import { ProfileBanner } from '@components/ProfileBanner';
+import { SearchPostsAndList } from '@components/SearchPostsAndList';
 
 import { getPosts } from '@utils/getPosts';
 

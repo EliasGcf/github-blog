@@ -1,14 +1,16 @@
-import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
   faBuilding,
   faUpRightFromSquare,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
+
+import { Link } from '@components/Link';
+
 import { asyncComponent } from '@utils/asyncComponent';
 import { getGitHubProfile } from '@utils/getGithubProfile';
-import { Link } from '@components/Link';
 
 async function ProfileBannerBase() {
   const profile = await getGitHubProfile();

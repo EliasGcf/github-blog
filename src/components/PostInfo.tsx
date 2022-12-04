@@ -1,15 +1,14 @@
 import { faCalendarDay, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+/* eslint-disable import/no-duplicates */
+import { formatDistanceToNow, parseISO } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+/* eslint-enable import/no-duplicates */
 
 import { Link } from '@components/Link';
 
-import { Post } from '@utils/getPosts';
 import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
-
-/* eslint-disable import/no-duplicates */
-import { formatDistanceToNow, parseISO } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
-/* eslint-enable import/no-duplicates */
+import { Post } from '@utils/getPosts';
 
 type PostInfoProps = {
   post: Post;

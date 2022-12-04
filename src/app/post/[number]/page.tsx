@@ -1,6 +1,7 @@
-import { PostInfo } from '@components/PostInfo';
-import { getPost } from '@utils/getPost';
 import { PostContent } from '@components/PostContent';
+import { PostInfo } from '@components/PostInfo';
+
+import { getPost } from '@utils/getPost';
 
 type PostProps = {
   params: {

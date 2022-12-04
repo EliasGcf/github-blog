@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react';
 import { Nunito } from '@next/font/google';
+import { PropsWithChildren } from 'react';
 
 import '@styles/global.css';
 
