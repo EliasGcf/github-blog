@@ -29,7 +29,7 @@ async function ProfileBannerBase() {
         <div className="mt-8 flex w-full items-center justify-between sm:m-0">
           <strong className="text-2xl">{profile.name}</strong>
 
-          <Link href={profile.url}>
+          <Link href={profile.url} target="_blank">
             GITHUB
             <FontAwesomeIcon icon={faUpRightFromSquare} height={12} width={12} />
           </Link>
