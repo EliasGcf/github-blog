@@ -3,6 +3,7 @@ import { formatDistanceToNow, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 /* eslint-enable import/no-duplicates */
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 
 import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
 import { Post } from '@utils/getPosts';
@@ -30,7 +31,9 @@ export function PostCard({ post }: PostCardProps) {
           </span>
         </div>
 
-        <p className="mt-5 leading-relaxed text-base-text line-clamp-4">{post.content}</p>
+        <ReactMarkdown className="prose prose-invert mt-5 max-w-none leading-relaxed text-base-text line-clamp-4">
+          {post.content}
+        </ReactMarkdown>
       </div>
     </Link>
   );
