@@ -1,4 +1,4 @@
-import { Nunito } from '@next/font/google';
+import { Fira_Code, Nunito } from '@next/font/google';
 import { PropsWithChildren } from 'react';
 
 import '@styles/global.css';
@@ -11,9 +11,15 @@ const nunito = Nunito({
   variable: '--font-sans',
 });
 
+const firaCode = Fira_Code({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-mono',
+});
+
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="pt-BR" className={nunito.variable}>
+    <html lang="pt-BR" className={`${firaCode.variable} ${nunito.variable}`}>
       <head />
       <body className="bg-base-background">
         <Cover />
